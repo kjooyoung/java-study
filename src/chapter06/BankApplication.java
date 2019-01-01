@@ -12,7 +12,7 @@ public class BankApplication {
 			System.out.println("-------------------------------------------");
 			System.out.println("1.계좌생성 | 2.계좌목록 | 3.예금 | 4.출금 | 5.종료");
 			System.out.println("-------------------------------------------");
-			System.out.println("선택> ");
+			System.out.print("선택> ");
 			
 			int selectNo = sc.nextInt();
 			
@@ -37,9 +37,9 @@ public class BankApplication {
 		System.out.println("계좌생성");
 		System.out.println("-------");
 		System.out.print("계좌번호 : ");
-		String ano = sc.nextLine();
+		String ano = sc.next();
 		System.out.print("예금주 : ");
-		String owner = sc.nextLine();
+		String owner = sc.next();
 		System.out.print("초기입금액 : ");
 		int balance = sc.nextInt();
 		
@@ -79,7 +79,7 @@ public class BankApplication {
 			return;
 		}else {
 			System.out.print("계좌번호 : ");
-			String ano = sc.nextLine();
+			String ano = sc.next();
 			Account a1 = findAccount(ano);
 			if(a1 == null) {
 				System.out.println("입력하신 계좌는 찾을 수 없습니다.");
@@ -103,9 +103,9 @@ public class BankApplication {
 			return;
 		}else {
 			System.out.print("계좌번호 : ");
-			String ano = sc.nextLine();
+			String ano = sc.next();
 			Account a1 = findAccount(ano);
-			if(a1 == null) {
+			if( findAccount(ano) == null) {
 				System.out.println("입력하신 계좌는 찾을 수 없습니다.");
 			}else {
 				System.out.println("잔액 : "+a1.getBalance());
@@ -125,14 +125,17 @@ public class BankApplication {
 	
 	//Account 배열에서 ano와 동일한 Account 객체 찾기
 	private static Account findAccount(String ano) {
-		
+		Account account = null;
 		for(int i=0; i<accountArray.length; i++) {
+			//System.out.println(accountArray[0].getAno());
+			System.out.println(ano);
+			System.out.println(accountArray[i].getAno());
 			if(accountArray[i].getAno().equals(ano)) {
-				return accountArray[i];
-			}else if(accountArray[i]==null) {
-				return null;
-			}
+				account = accountArray[i];
+			} /*
+				 * else if(accountArray[i]==null) { return null; }
+				 */
 		}
-		return null;
+		return account;
 	}
 }
