@@ -5,12 +5,12 @@ import java.util.List;
 import java.util.Scanner;
 
 public class StudentMgr {
-	static List<Student> studentArr = new ArrayList<Student>();
-	static Scanner sc = new Scanner(System.in);
+	List<Student> studentArr = new ArrayList<Student>();
+	Scanner sc = new Scanner(System.in);
 	
-	static Student student = null;
+	Student student = null;
 	
-	static void addStudent() {
+	public void addStudent() {
 		System.out.print("이름 : ");
 		String name = sc.next();
 		System.out.print("학번 : ");
@@ -27,11 +27,11 @@ public class StudentMgr {
 		System.out.println();
 	}
 	
-	static void allInfo() {
-		if(StudentMgr.studentArr.size() != 0) {
+	public void allInfo() {
+		if(studentArr.size() != 0) {
 			System.out.println(" 이름        학번        국어   영어   수학   총합   평균");
-			for (int i = 0; i < StudentMgr.studentArr.size(); i++) {
-				StudentMgr.studentArr.get(i).info();
+			for (int i = 0; i < studentArr.size(); i++) {
+				studentArr.get(i).info();
 			}
 		} else {
 			System.out.println("입력된 정보가 없습니다.");
@@ -39,7 +39,7 @@ public class StudentMgr {
 		System.out.println();
 	}
 	
-	static void studentInfo() {
+	public void studentInfo() {
 		System.out.println("학생 이름을 입력해주세요.");
 		System.out.print("> ");
 		String name = sc.next();
@@ -48,7 +48,7 @@ public class StudentMgr {
 		showInfo(getStudent(name));
 	}
 	
-	static void studentRemove() {
+	public void studentRemove() {
 		System.out.println("학생 이름을 입력해주세요.");
 		System.out.print("> ");
 		String name = sc.next();
@@ -65,7 +65,7 @@ public class StudentMgr {
 		}
 	}
 	
-	static void studentUpdate() {
+	public void studentUpdate() {
 		System.out.println("학생 이름을 입력해주세요.");
 		System.out.print("> ");
 		String name = sc.next();
@@ -90,7 +90,7 @@ public class StudentMgr {
 		}
 	}
 	
-	static Student getStudent(String name) {
+	public Student getStudent(String name) {
 		for (int i = 0; i < studentArr.size(); i++) {
 			if(name.equals(studentArr.get(i).getName())) {
 				return studentArr.get(i);
@@ -100,7 +100,7 @@ public class StudentMgr {
 		return null;
 	}
 	
-	static void showInfo(Student student) {
+	public void showInfo(Student student) {
 		if(student != null) {
 			System.out.println(" 이름        학번        국어   영어   수학   총합   평균");
 			student.info();
@@ -109,4 +109,5 @@ public class StudentMgr {
 		}
 		
 	}
+
 }

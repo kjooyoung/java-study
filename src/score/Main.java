@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-
+		StudentMgr studentMgr = new StudentMgr(); 
 		while (true) {
 			System.out.println("----------------------");
 			System.out.println("성적 관리 프로그램 입니다.");
@@ -22,23 +22,23 @@ public class Main {
 
 			switch (num) {
 			case 1:
-				StudentMgr.addStudent();
+				studentMgr.addStudent();
 				break;
 
 			case 2:
-				StudentMgr.allInfo();
+				studentMgr.allInfo();
 				break;
 				
 			case 3:
-				StudentMgr.studentInfo();
+				studentMgr.studentInfo();
 				break;
 				
 			case 4:
-				StudentMgr.studentRemove();
+				studentMgr.studentRemove();
 				break;
 				
 			case 5:
-				StudentMgr.studentUpdate();
+				studentMgr.studentUpdate();
 				break;
 				
 			case 6:
