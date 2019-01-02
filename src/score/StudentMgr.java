@@ -40,20 +40,11 @@ public class StudentMgr {
 	}
 	
 	public void studentInfo() {
-		System.out.println("학생 이름을 입력해주세요.");
-		System.out.print("> ");
-		String name = sc.next();
-		System.out.println();
-		if(getStudent(name)==null) return;
-		showInfo(getStudent(name));
+		showInfo(getStudent());
 	}
 	
 	public void studentRemove() {
-		System.out.println("학생 이름을 입력해주세요.");
-		System.out.print("> ");
-		String name = sc.next();
-		System.out.println();
-		student = getStudent(name);
+		student = getStudent();
 		if(student!=null) {
 			showInfo(student);
 			System.out.println("삭제하시겠습니까?(y/n)");
@@ -66,11 +57,7 @@ public class StudentMgr {
 	}
 	
 	public void studentUpdate() {
-		System.out.println("학생 이름을 입력해주세요.");
-		System.out.print("> ");
-		String name = sc.next();
-		System.out.println();
-		student = getStudent(name);
+		student = getStudent();
 		if(student!=null) {
 			System.out.println("과목을 선택해주세요.");
 			System.out.println("1.국어 2.영어 3.수학");
@@ -90,7 +77,11 @@ public class StudentMgr {
 		}
 	}
 	
-	public Student getStudent(String name) {
+	public Student getStudent() {
+		System.out.println("학생 이름을 입력해주세요.");
+		System.out.print("> ");
+		String name = sc.next();
+		System.out.println();
 		for (int i = 0; i < studentArr.size(); i++) {
 			if(name.equals(studentArr.get(i).getName())) {
 				return studentArr.get(i);
@@ -104,10 +95,6 @@ public class StudentMgr {
 		if(student != null) {
 			System.out.println(" 이름        학번        국어   영어   수학   총합   평균");
 			student.info();
-		} else {
-			System.out.println("해당 이름으로 입력된 정보가 없습니다.");
-		}
-		
+		} 
 	}
-
 }
